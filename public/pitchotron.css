@@ -1,0 +1,195 @@
+
+@font-face {
+    font-family: Panettone;
+    src: url('fonts/Panettone.otf');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+body {
+    font-family: sans-serif;
+    background-color: #578A9F;
+}
+
+.pitch {
+    max-width: 52em;
+    margin: 4px auto 4px auto;
+    padding: 0 20px 0 20px; 
+    height: 100%;
+}
+
+.pitch h1 {
+    font-family: 'Panettone';
+    font-size: 4em;
+
+    text-align: center;
+    color: #246;
+}
+
+.pitch .content{
+    float: left;
+    width: 35em;
+}
+
+.pitch .frame {
+    /* height: 4.3em; */
+    /* border: 1px solid lightblue; */
+    padding: 1em;
+    vertical-align: middle;
+    border-radius: 5px;
+    margin-bottom: 1em;
+    text-align: justify;
+    color: black;
+    font-size:  1.3em;
+    font-weight: bold;
+    min-height: 11em;
+    
+    /* background-color: #FFF1C6; */
+    background-color: white;
+
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+.pitch .gen
+{
+    clear: both;
+}
+
+.pitch button {
+    float: right;
+    border:  1px solid lightblue;
+    border-radius: 4px;
+    padding: 4px;
+    cursor: pointer;
+    background-color: white;
+    font-size: 1.3em;
+
+}
+
+.pitch button:hover {
+    background-color: lightskyblue;
+}
+
+
+
+.pitch .social {
+    clear: both;
+    margin-top: 1em;
+    margin-right: 4px;
+}
+
+.pitch .tw {
+    float: left;
+    margin-top: 0em;
+    margin-right: 4px;
+}
+
+.permalink {
+    clear: left;
+}
+.permalink  a {
+    font-style: italic;
+    color: #CCD;
+    font-size: small;
+ 
+}
+
+.ad {
+    float: left;
+    width: 30%;
+    margin-right: 1em;
+}
+.ad img {
+    width: 100%;
+    
+}
+
+.credits {
+    float: right;
+    margin-top: 5em;
+    font-style: italic;
+    color: #CCD;
+    font-size: small;
+}
+
+.credits a,
+.credits a:visited
+ {
+    color: #CCD;
+    target-new: tab;
+    text-decoration: none;
+}
+
+.credits a:hover,
+.credits a:active
+{
+    color: #BBC;
+    text-decoration: underline;
+}
+
+@media (max-width: 890px) {
+	* {
+		box-sizing: border-box;
+	}
+.pitch h1 {
+    float: right;
+    text-align: left;
+    margin-right: 10%;
+    margin-top: 0.5em;
+    font-size: 3.2em;
+}
+
+.pitch {
+    max-width: none; 
+    /* margin: 4px auto 4px auto; */
+    padding: 0 ;
+    height: 100%;
+}
+
+.pitch .frame {
+    font-size: 1.1em;
+    max-width: 100%;
+    text-align: left ;
+    min-height: 15em;
+}
+
+.pitch .content{
+    clear: both;
+    width: 100%;
+    margin-left: 0em;
+    margin-left: 0em;
+}
+
+.pitch button {
+    border:  1px solid lightblue;
+    border-radius: 4px;
+    padding: 4px;
+}
+
+
+
+}
+
+@media (max-width: 370px) {
+    .pitch h1 {
+        margin-right: 10%;
+        font-size: 2.5em;
+
+    }
+}
+
+
+@media (max-width: 275px) {
+    .pitch h1 {
+        margin-right: 10%;
+        font-size: 2.0em;
+
+    }
+}
+
+@media (max-width: 230px) {
+    .pitch h1 {
+        font-size: 1.3em;
+    }
+}

@@ -1,0 +1,5 @@
+.ionide/
+node_modules/
+obj/
+bin/
+.vscode/
