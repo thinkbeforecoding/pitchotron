@@ -13792,7 +13792,11 @@ function twitter(pitch, version$$1, seed$$1) {
     value$$6, null;
   }
 
-  twttr.widgets.load();
+  try {
+    twttr.widgets.load();
+  } catch (ex) {
+    console.error(ex.message);
+  }
 }
 function gen($offset$$11, $rand$$12, $wordCount$$13, $pitchls$$14, $node$$15) {
   gen: while (true) {
@@ -13867,16 +13871,16 @@ function concat(ls) {
           $target$$23 = 1;
           next = _arg1$$2.tail;
         } else {
-          const activePatternResult137 = $007CC$007C_$007C(".", _arg1$$2.head);
+          const activePatternResult140 = $007CC$007C_$007C(".", _arg1$$2.head);
 
-          if (activePatternResult137 != null) {
+          if (activePatternResult140 != null) {
             $target$$23 = 2;
             h = _arg1$$2.head;
             tail = _arg1$$2.tail;
           } else {
-            const activePatternResult138 = $007CC$007C_$007C(",", _arg1$$2.head);
+            const activePatternResult141 = $007CC$007C_$007C(",", _arg1$$2.head);
 
-            if (activePatternResult138 != null) {
+            if (activePatternResult141 != null) {
               $target$$23 = 2;
               h = _arg1$$2.head;
               tail = _arg1$$2.tail;
@@ -13919,9 +13923,9 @@ function concat(ls) {
             var $target$$24, h$$1, h2, tail$$1;
 
             if (_arg1$$2.tail != null) {
-              const activePatternResult134 = $007CE$007C_$007C("'", _arg1$$2.head);
+              const activePatternResult137 = $007CE$007C_$007C("'", _arg1$$2.head);
 
-              if (activePatternResult134 != null) {
+              if (activePatternResult137 != null) {
                 if (_arg1$$2.tail.tail != null) {
                   $target$$24 = 0;
                   h$$1 = _arg1$$2.head;
@@ -14035,12 +14039,12 @@ function init() {
       var $target$$30, seed$$5, v;
 
       if (!Object(_fable_fable_library_2_4_11_Array_js__WEBPACK_IMPORTED_MODULE_12__["equalsWith"])(_fable_fable_library_2_4_11_Util_js__WEBPACK_IMPORTED_MODULE_1__["comparePrimitives"], matchValue$$2, null) ? matchValue$$2.length === 2 : false) {
-        const activePatternResult154 = Object(_Prelude_fs__WEBPACK_IMPORTED_MODULE_2__["$007CInt$007C_$007C"])(matchValue$$2[0]);
+        const activePatternResult157 = Object(_Prelude_fs__WEBPACK_IMPORTED_MODULE_2__["$007CInt$007C_$007C"])(matchValue$$2[0]);
 
-        if (activePatternResult154 != null) {
+        if (activePatternResult157 != null) {
           $target$$30 = 0;
           seed$$5 = matchValue$$2[1];
-          v = activePatternResult154;
+          v = activePatternResult157;
         } else {
           $target$$30 = 1;
         }

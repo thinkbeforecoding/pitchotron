@@ -91,7 +91,10 @@ let twitter (pitch:string) version seed =
     else
         twt.appendChild(btn) |> ignore
     
-    reloadTwitter()
+    try
+        reloadTwitter()
+    with
+    | ex -> console.error(ex.Message)
 
 let rec gen offset (rand, wordCount, pitchls) node =
     match wordCount with
