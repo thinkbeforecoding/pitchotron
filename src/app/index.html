@@ -33,7 +33,7 @@
 <body>
   <div class="pitch">
     <h1>Pitchotron</h1>
-    <div class="ad">
+    <div class="illustration">
       <img alt="Pitchotron: mh... Rien de tel qu'un bon pitch !" src="images/pitchotron.jpg" />
     </div>
     <div class="content">
@@ -45,15 +45,6 @@
       <button id="generate" class="generate-btn">Balance le pitch !</button>
     </div>
     <div class="social">
-      <div class="tw">
-        <!-- <iframe src="https://platform.twitter.com/widgets/tweet_button.html?" allowtransparency="true" frameborder="0" scrolling="no"
-          style="width:80px; height:20px;"></iframe>  -->
-          <span id="twitter">
-                <a href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="This is the pitchotron" data-show-count="false">Tweet</a><script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-          </span>
-        <!-- <a id="tweed" class="twitter-share-button" href="https://twitter.com/intent/tweet"> Tweet</a> -->
-      </div>
-      <div class="fb-like" data-href="https://pitchotron.com" data-send="true" data-width="430" data-show-faces="false"></div>
       <div class="permalink">
         <a href="#" id="permalink">permalink</a>
       </div>
@@ -61,12 +52,11 @@
 
     <div class="credits">
       by <a href="https://www.instagram.com/foliedrue">Léonie De Rudder</a> /
-      <a href="https://twitter.com/thinkb4coding">thinkb4coding</a>
+      <a href="https://mastodon.social/@thinkb4coding">thinkb4coding</a>
     </div>
   </div>
 
-  <script src="bundle.js"></script>
-  <!-- <script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
+  <script type="module" src="./App.fs.js"> </script>
 </body>
 
 </html>

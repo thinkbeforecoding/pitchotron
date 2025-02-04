@@ -31,71 +31,6 @@ let permalink version seed =
     path + "?" + (string version) + "." + Base64.toB64 seed  
 
 
-let facebook id =
-    let d = document
-    let fjs = d.getElementsByTagName("script").[0]
-    if isNull (d.getElementById(id)) then
-      let js : HTMLScriptElement = d.createElement("script") |> unbox
-      js.id <- id
-      js.src <- "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0"
-      fjs.parentNode.insertBefore(js, fjs) |> ignore
-
-let awaitAnimationFrame() =
-  Async.FromContinuations <| fun (cont,_,_) ->
-    window.requestAnimationFrame(cont) |> ignore
-
-
-let rec findTwitterFrame n =
-    async {
-        let tweet : HTMLIFrameElement = document.getElementsByTagName("iframe").[0] |> unbox
-        if isNull tweet then
-            if n <> 0 then
-                // do! awaitAnimationFrame() |> Async.Ignore
-                do! Async.Sleep 100
-                return! findTwitterFrame (n-1)
-            else
-                return null
-        else
-            return tweet
-    }
-
-[<Emit("twttr.widgets.load();")>]
-let reloadTwitter() : unit = failwith "JS only"
-
-let twitter (pitch:string) version seed =
-    let url = permalink version seed
-    let urlAndHash = 280 - (url.Length + 14) //#pitchotron
-
-    let sample =
-        if pitch.Length > urlAndHash then
-            pitch.Substring(0,urlAndHash-3) + "..."
-        else
-            pitch
-
-
-    let tweetFrame : HTMLIFrameElement = document.getElementsByTagName("iframe").[0] |> unbox
-    if not (isNull tweetFrame) then
-        tweetFrame.remove()
-    let btn = document.createElement("a")
-    btn.className <- "twitter-share-button"
-    btn.setAttribute("href", "http://twitter.com/share")
-    btn.setAttribute("data-url", permalink version seed)
-    btn.setAttribute("data-text", sample)
-    btn.setAttribute("data-hashtags", "pitchotron")
-
-
-    let twt = document.getElementById("twitter")
-    let prevBtn = twt.getElementsByClassName("twitter-share-button").[0]
-    if not (isNull prevBtn) then
-        twt.replaceChild(btn, prevBtn) |> ignore
-    else
-        twt.appendChild(btn) |> ignore
-    
-    try
-        reloadTwitter()
-    with
-    | ex -> console.error(ex.Message)
-
 let rec gen offset (rand, wordCount, pitchls) node =
     match wordCount with
     | 0 -> rand, 0 , pitchls
@@ -140,7 +75,6 @@ let concat ls =
 
 let init() =
 
-    facebook "facebook-jssdk"
 
     let div = document.getElementById("pitch")
     let btn = document.getElementById("generate")
@@ -157,8 +91,6 @@ let init() =
             
             let _,_,full = gen 10 (rand, 100, []) pitch
 
-            twitter (concat full) version (Rand.seed rand) 
-            // |> Async.Start
             for wordCount in 1 .. 100 do
                 for offset in 0 .. 10 do
                     let _, n, result = 
